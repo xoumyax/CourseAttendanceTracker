@@ -1,0 +1,7 @@
+Student,ID,SIS User ID,SIS Login ID,Section,Attendance (1001)
+    Points Possible,,,,,10
+"Student, Test",9999,,,Test Section,
+"Student, Alpha",1001,900000001,test01,Section A,10
+"Student, Beta",1002,900000002,test02,Section A,8
+"Student, Gamma",1003,900000003,test03,Section B,5
+"Student, NoId",1004,,test04,Section B,

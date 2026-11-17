@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Guide - {course}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .guide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #667eea;
+        }
+        .guide-header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .guide-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .step {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        .step-title {
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .step-content {
+            margin-left: 56px;
+            color: #555;
+            line-height: 1.8;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        .credential-box {
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+        .button-group {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .guide-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.3s;
+        }
+        .guide-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .guide-btn.secondary {
+            background: #6c757d;
+        }
+        ul {
+            margin-left: 1.5rem;
+        }
+        ul li {
+            margin: 0.5rem 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e83e8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-header">
+            <h1>📚 Student Guide</h1>
+            <p data-cfg="course_name"></p>
+        </div>
+
+        <h2 style="color: #667eea; margin: 2rem 0 1rem 0;">🆕 First Time? Start Here!</h2>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <span class="step-title">Get Your Enrollment Code</span>
+            <div class="step-content">
+                <p>Your instructor gives each student a one-time <strong>enrollment code</strong> (it looks like <code>K7Q2-9MXD</code>). You need it to create your account. Each code works once.</p>
+                <div class="warning-box">
+                    <strong>Keep it private.</strong> Anyone with your student ID and your code could register as you.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-title">Register Your Account</span>
+            <div class="step-content">
+                <ul>
+                    <li>Go to the <strong>Registration Page</strong></li>
+                    <li>Enter your <strong>student ID</strong> and your <strong>enrollment code</strong></li>
+                    <li>Choose a <strong>password</strong> (at least 8 characters)</li>
+                    <li>Click <strong>Register</strong>, then log in</li>
+                </ul>
+                <div class="button-group">
+                    <a href="/student/register" class="guide-btn">Go to Registration →</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="color: #667eea; margin: 3rem 0 1rem 0;">📝 Marking Attendance</h2>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-title">Get the Check-in Code in Class</span>
+            <div class="step-content">
+                <p>Your instructor shows a 6-digit check-in code during class.</p>
+                <ul>
+                    <li>The code is only valid for <strong><span data-cfg="code_ttl_minutes"></span> minutes</strong></li>
+                </ul>
+                <div class="warning-box">
+                    <strong>⏰ Check-in times:</strong> <span data-cfg="checkin_windows_text"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <span class="step-title">Check In</span>
+            <div class="step-content">
+                <ul>
+                    <li>Log in and open the <strong>Mark Attendance</strong> page</li>
+                    <li>Pick today's session and type the 6-digit code</li>
+                    <li>Click <strong>Submit Attendance</strong></li>
+                </ul>
+                <p>You can check in once per session. Too many wrong codes in a row will block you for a minute.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <span class="step-title">Check Your Grade</span>
+            <div class="step-content">
+                <p>Press <strong>View My Records</strong> on the attendance page. Points come from your attendance percentage:</p>
+                <ul data-cfg-grade-scale></ul>
+            </div>
+        </div>
+
+        <h2 style="color: #667eea; margin: 3rem 0 1rem 0;">🔑 Forgot Your Password?</h2>
+
+        <div class="step">
+            <span class="step-number">🔑</span>
+            <span class="step-title">Ask for a Reset Code</span>
+            <div class="step-content">
+                <ul>
+                    <li>Ask your instructor to issue you a <strong>new enrollment code</strong></li>
+                    <li>Open the <strong>Reset Password</strong> page</li>
+                    <li>Enter your student ID, the new code and a new password</li>
+                </ul>
+                <div class="button-group">
+                    <a href="/student/reset-password" class="guide-btn">Reset Password →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">❓</span>
+            <span class="step-title">Common Issues</span>
+            <div class="step-content">
+                <div class="warning-box">
+                    <strong>"That student ID and enrollment code do not match"</strong><br>
+                    → Check both for typos. If the code was already used, ask for a new one.
+                </div>
+                <div class="warning-box">
+                    <strong>"Invalid or expired check-in code"</strong><br>
+                    → Check-in codes expire quickly. Ask for the current code.
+                </div>
+                <div class="warning-box">
+                    <strong>"Check-in is closed"</strong><br>
+                    → Check-in is only open during the times listed above.
+                </div>
+                <div class="warning-box">
+                    <strong>"Too many failed attempts"</strong><br>
+                    → Wait a minute, then try again.
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group" style="margin-top: 3rem;">
+            <a href="/" class="guide-btn">Go to Login</a>
+            <a href="/student/register" class="guide-btn secondary">Register Account</a>
+        </div>
+
+        <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.9rem;">
+            Need help? Contact your instructor.
+        </p>
+    </div>
+    <script src="/static/js/common.js"></script>
+</body>
+</html>

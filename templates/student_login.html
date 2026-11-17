@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - {course}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="wizard-icon">🧙‍♂️</div>
+            <h1>Course Attendance Tracker</h1>
+            <p class="subtitle" data-cfg="course_name">Student Portal</p>
+        </div>
+
+        <div id="alertBox"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId" placeholder="Enter your student ID" required autofocus autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <a href="/student/register" class="link">First time? Register with your enrollment code →</a>
+        <a href="/student/reset-password" class="link">Forgot password? Reset it with a code from your instructor →</a>
+        <a href="/student/guide" class="link">📖 Need help? View Student Guide →</a>
+        <a href="/admin/login" class="link">Admin Login →</a>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/student_login.js"></script>
+</body>
+</html>

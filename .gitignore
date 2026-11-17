@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Student rosters / Canvas exports contain student records. Never commit them.
+rosters/
+*.csv
+*.xlsx
+*.xls
+!tests/fixtures/*.csv
+
+# Test and tooling artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.build-report.md
